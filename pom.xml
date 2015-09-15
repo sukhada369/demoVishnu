@@ -280,7 +280,7 @@
     <configuration>
         <echo message="  $${git.commit.id.describe}:     ${git-commit-id.commit.id.describe}" />
         <dockerDirectory>${project.basedir}</dockerDirectory>
-        <imageName>sukhada:1</imageName>
+        <imageName>sukhada:${buildNumber}</imageName>
 
 
                <resources>        <!-- Dockerfile building resources -->
