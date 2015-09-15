@@ -37,6 +37,23 @@
 
 
 
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>buildnumber-maven-plugin</artifactId>
+    <version>1.1</version>
+    <executions>
+        <execution>
+            <phase>validate</phase>
+            <goals>
+                <goal>create</goal>
+            </goals>
+         </execution>
+    </executions>
+</plugin>
+
+
+
+
 	<plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -263,7 +280,7 @@
     <configuration>
         <echo message="  $${git.commit.id.describe}:     ${git-commit-id.commit.id.describe}" />
         <dockerDirectory>${project.basedir}</dockerDirectory>
-        <imageName>sukhada</imageName>
+        <imageName>sukhada:1</imageName>
 
 
                <resources>        <!-- Dockerfile building resources -->
