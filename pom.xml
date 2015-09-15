@@ -8,6 +8,21 @@
   <name>test2 Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
+        <scm>
+              <url>https://github.com/sukhada369/demoDockerMaven</url>
+              <connection>scm:git:git://github.com/sukhada369/demoDockerMaven.git</connection>
+              <developerConnection>scm:git:git@github.com:sukhada369/demoDockerMaven.git</developerConnection>
+        </scm>
+       <developers>
+              <developer>
+                     <email>sukhada369@gmail.com</email>
+                     <name>Sukhada Sankpal</name>
+                     <url>https://github.com/sukhada369</url>
+                     <id>sukhada369</id>
+              </developer>
+       </developers>
+  
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -18,11 +33,24 @@
   </dependencies>
   <build>
     <finalName>test2</finalName>
+    
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+    
+    
 <plugins>
 
 
 
-<plugin>
+	<plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>buildnumber-maven-plugin</artifactId>
     <version>1.1</version>
@@ -35,7 +63,6 @@
          </execution>
     </executions>
 </plugin>
-
 
 
 
@@ -54,26 +81,12 @@
         </execution>
     </executions>
     <configuration>
-        <echo message="  $${git.commit.id.describe}:     ${git-commit-id.commit.id.describe}" />
+        <echo message="  $${git.commit.id.describe}:${git-commit-id.commit.id.describe}" />
         <dockerDirectory>${project.basedir}</dockerDirectory>
-        <imageName>sukhada:${buildNumber}</imageName>
-
-
-               <resources>        <!-- Dockerfile building resources -->
-                    <resource>
-                        <targetPath>/</targetPath>
-                        <directory>.</directory>
-                        <excludes>
-                            <exclude>target/**/*</exclude>
-                            <exclude>pom.xml</exclude>
-                            <exclude>*.iml</exclude>
-                        </excludes>
-                    </resource>
-                </resources>
-
-
+        <imageName>sukhi:${buildNumber}</imageName>
     </configuration>
     </plugin>
 </plugins>
   </build>
 </project>
+
